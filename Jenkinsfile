@@ -96,7 +96,7 @@ pipeline{
             steps{
                script{
                    
-                   dockerImagePush("${params.ImageName}","${params.ImageTag}","${params.DockerHubUser}")
+                   dockerPush("${params.ImageName}","${params.ImageTag}","${params.DockerHubUser}")
                }
             }
         }   
