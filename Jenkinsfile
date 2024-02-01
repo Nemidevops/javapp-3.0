@@ -97,6 +97,7 @@ pipeline{
                script{
                    
                    dockerPush("${params.ImageName}","${params.ImageTag}","${params.DockerHubUser}")
+                   def DockerHucredentialsId = 'docker'
                }
             }
         }   
