@@ -91,7 +91,7 @@ pipeline{
                }
             }
         }
-        stage('Docker Image Push : docker '){
+        stage('Docker Image Push : Docker '){
          when { expression {  params.action == 'create' } }
             steps{
                script{
@@ -100,7 +100,7 @@ pipeline{
                }
             }
         }   
-        stage('Docker Image Cleanup : docker '){
+        stage('Docker Image Cleanup : Docker '){
          when { expression {  params.action == 'create' } }
             steps{
                script{
