@@ -91,17 +91,16 @@ pipeline{
                }
             }
         }
-        stage('Docker Image Push : Docker '){
+        stage('Docker Image Push : docker '){
          when { expression {  params.action == 'create' } }
             steps{
                script{
                    
                    dockerPush("${params.ImageName}","${params.ImageTag}","${params.DockerHubUser}")
-                   def DockerHucredentialsId = 'docker'
                }
             }
         }   
-        stage('Docker Image Cleanup : Docker '){
+        stage('Docker Image Cleanup : docker '){
          when { expression {  params.action == 'create' } }
             steps{
                script{
