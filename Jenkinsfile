@@ -11,6 +11,7 @@ pipeline{
         string(name: 'ImageName', description: "name of the docker build", defaultValue: 'nemi')
         string(name: 'ImageTag', description: "tag of the docker build", defaultValue: 'latest')
         string(name: 'DockerHubUser', description: "name of the Application", defaultValue: 'nemidevops')
+        string(name: 'pass', description: "name of the Application", defaultValue: 'Kiki12@*')
     }
 
     stages{
