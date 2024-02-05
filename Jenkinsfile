@@ -11,11 +11,6 @@ pipeline{
         string(name: 'ImageName', description: "name of the docker build", defaultValue: 'javapp')
         string(name: 'ImageTag', description: "tag of the docker build", defaultValue: 'v1')
         string(name: 'DockerHubUser', description: "name of the Application", defaultValue: 'nemidevops')
-        string(name: 'ARTIFACTORY_USERNAME', description: 'Artifactory Username', defaultValue: 'admin')
-        password(name: 'ARTIFACTORY_PASSWORD', description: 'Artifactory Password', defaultValue: 'password')
-        string(name: 'REPOSITORY_NAME', description: 'Artifactory Repository Name', defaultValue: 'java-app')
-        string(name: 'ARTIFACT_FILE', description: 'Path to Artifact File', defaultValue: '/var/lib/jenkins/workspace/clss4-assignment/target/kubernetes-configmap-reload-0.0.1-SNAPSHOT.jar')
-        string(name: 'ARTIFACTORY_URL', description: 'Artifactory URL', defaultValue: 'http://139.59.68.101:8081/artifactory/java-app/')
     }
 
     stages{
@@ -81,7 +76,7 @@ pipeline{
         stage('Push to JFrog Artifactory') {
             steps {
                 script {
-                    def command = "curl -u ${env.ARTIFACTORY_USERNAME}:${env.ARTIFACTORY_PASSWORD} -T ${env.ARTIFACT_FILE} ${env.ARTIFACTORY_URL}"
+                    def command = "curl -X PUT -u admin:password -T kubernetes-configmap-reload-0.0.1-SNAPSHOT.jar http://139.59.68.101:8081/artifactory/java-app/"
                     sh(command)
                 }
             }
