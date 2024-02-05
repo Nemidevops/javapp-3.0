@@ -76,7 +76,7 @@ pipeline{
         stage('Push to JFrog Artifactory') {
             steps {
                 script {
-                    def command = "curl -X PUT -u admin:password -T kubernetes-configmap-reload-0.0.1-SNAPSHOT.jar http://139.59.68.101:8081/artifactory/java-app/"
+                    def command = "curl -u admin:password -T *.jar http://139.59.68.101:8081/artifactory/java-app/"
                     sh(command)
                 }
             }
