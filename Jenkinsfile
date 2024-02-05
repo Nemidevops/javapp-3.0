@@ -77,7 +77,7 @@ pipeline{
          when { expression {  params.action == 'create' } }   
             steps {
                 script {
-                    def command = "curl -u admin:password -T kubernetes-configmap-reload-0.0.1-SNAPSHOT.jar http://139.59.68.101:8081/artifactory/example-repo-local/"
+                    def command = "curl -X -u admin:password -T /var/lib/jenkins/workspace/clss4-assignment/target/kubernetes-configmap-reload-0.0.1-SNAPSHOT.jar http://139.59.68.101:8081/artifactory/example-repo-local/"
                     sh(command)
                 }
             }
