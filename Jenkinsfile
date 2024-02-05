@@ -15,7 +15,7 @@ pipeline{
         password(name: 'ARTIFACTORY_PASSWORD', description: 'Artifactory Password', defaultValue: 'password')
         string(name: 'REPOSITORY_NAME', description: 'Artifactory Repository Name', defaultValue: 'java-app')
         string(name: 'ARTIFACT_FILE', description: 'Path to Artifact File', defaultValue: '/var/lib/jenkins/workspace/clss4-assignment/target/kubernetes-configmap-reload-0.0.1-SNAPSHOT.jar')
-        string(name: 'ARTIFACTORY_URL', description: 'Artifactory URL', defaultValue: 'http://139.59.68.101:8081/artifactory/example-repo-local/')
+        string(name: 'ARTIFACTORY_URL', description: 'Artifactory URL', defaultValue: 'http://139.59.68.101:8081/artifactory/java-app/')
     }
 
     stages{
