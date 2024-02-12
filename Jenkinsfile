@@ -73,15 +73,23 @@ pipeline{
                }
             }
         }
-        stage('Push to JFrog Artifactory') {
-         when { expression {  params.action == 'create' } }   
-            steps {
-                script {
-                    def command = "curl -u admin:password -T /var/lib/jenkins/workspace/clss4-assignment/target/kubernetes-configmap-reload-0.0.1-SNAPSHOT.jar http://139.59.68.101:8081/artifactory/java-app/"
-                    sh(command)
+        stage ('Pushing Jar to Jfrog : python'){
+          when { expression {  params.action == 'create' } }
+          steps{
+            script{
+                jfrogPush()
                 }
             }
-        }   
+        }
+        // stage('Push to JFrog Artifactory') {
+        //  when { expression {  params.action == 'create' } }   
+        //     steps {
+        //         script {
+        //             def command = "curl -u admin:password -T /var/lib/jenkins/workspace/clss4-assignment/target/kubernetes-configmap-reload-0.0.1-SNAPSHOT.jar http://139.59.68.101:8081/artifactory/java-app/"
+        //             sh(command)
+        //         }
+        //     }
+        // }   
         stage('Docker Image Build'){
          when { expression {  params.action == 'create' } }
             steps{
